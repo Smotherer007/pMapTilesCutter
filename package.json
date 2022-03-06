@@ -1,0 +1,28 @@
+{
+  "name": "pmaptilescutter",
+  "version": "1.0.0",
+  "description": "Cuts any given image into map tiles with different zoom levels",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "pmaptilescutter": "bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Smotherer007/pMapTilesCutter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Smotherer007/pMapTilesCutter/issues"
+  },
+  "homepage": "https://github.com/Smotherer007/pMapTilesCutter#readme",
+  "dependencies": {
+    "cli-progress": "^3.10.0",
+    "fs": "^0.0.1-security",
+    "sharp": "^0.30.2",
+    "yargs": "^17.3.1"
+  }
+}
