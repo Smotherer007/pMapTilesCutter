@@ -20,8 +20,6 @@ const yargs = require('yargs')
     })
     .argv
 
-console.log(yargs.imagePath)
-
 cutTiles({
     sourcePath: yargs.image,
     targetPath: yargs.destination,
