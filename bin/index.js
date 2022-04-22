@@ -38,10 +38,8 @@ async function cutTiles(options) {
     const sourceImageWidth = sourceImageMetadata.width
     const sourceImageHeight = sourceImageMetadata.height
 
-    // Define max tile dimensions
     const maxTileDim = Math.ceil(Math.max(sourceImageWidth, sourceImageHeight) / options.tileSize)
 
-    // Define max and min zoom level + define the total number of tiles that will be generated
     let minZoomLevel = 0
     let maxZoomLevel = 0
     let numTilesTotalForAllLevels = 1
@@ -94,7 +92,7 @@ async function createTiles(zoom, options) {
     const numberOfXTiles = canvasWidth / options.tileSize
     const numberOfYTiles = canvasHeight / options.tileSize
     const totalNumberOfTiles = numberOfXTiles * numberOfXTiles
-    let currentNumberOfGeneratedTiles = 0;
+    let currentNumberOfGeneratedTiles = 0
     const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic)
     bar.start(totalNumberOfTiles, currentNumberOfGeneratedTiles)
     for (let y = 0; y < numberOfYTiles; y++) {
