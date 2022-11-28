@@ -14,4 +14,4 @@ Parameters
 Example
 -------
 
-./pMapTilesCutterGo --sourcePath ./map.png --targetPath ./mymaptiles/ --tileSize 256 
+./pMapTilesCutter --sourcePath ./map.png --targetPath ./mymaptiles/ --tileSize 256 
