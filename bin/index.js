@@ -3,27 +3,27 @@ const sharp = require('sharp')
 const fs = require('fs')
 const cliProgress = require('cli-progress')
 const yargs = require('yargs')
-    .option('image', {
-        alias: 'i',
+    .option('sourcePath', {
+        alias: 'sourcePath',
         describe: 'Image to cut in tiles',
         demandOption: true
     })
-    .option('destination', {
-        alias: 'd',
+    .option('targetPath', {
+        alias: 'targetPath',
         describe: 'Destination location for the generated image tiles',
         demandOption: true
     })
-    .option('size', {
-        alias: 's',
+    .option('tileSize', {
+        alias: 'tileSize',
         describe: 'Size of the image tiles',
         demandOption: true
     })
     .argv
 
 cutTiles({
-    sourcePath: yargs.image,
-    targetPath: yargs.destination,
-    tileSize: parseInt(yargs.size)
+    sourcePath: yargs.sourcePath,
+    targetPath: yargs.targetPath,
+    tileSize: parseInt(yargs.tileSize)
 }).then(() => function () {
     console.log("Tiles generation finished")
 })
