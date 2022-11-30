@@ -11,7 +11,9 @@ Parameters
 
 --tileSize # The size of the map tiles
 
+--aspectRatioBarsColor # The color of the aspect ratio bars. The color have to be set as hex value like #000000. For transparency add an additionally 00 (Fully transparent #00000000) or FF (Fully visible #000000FF)
+
 Example
 -------
 
-./pMapTilesCutter --sourcePath ./map.png --targetPath ./mymaptiles/ --tileSize 256 
+./pMapTilesCutter --sourcePath ./map.png --targetPath ./mymaptiles/ --tileSize 256 --aspectRatioBarsColor #000000FF

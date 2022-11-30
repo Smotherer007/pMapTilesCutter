@@ -21,9 +21,9 @@ const yargs = require('yargs')
         default: 256
     }).option('aspectRatioBarsColor', {
         alias: 'aspectRatioBarsColor',
-        describe: 'This will change the color of the aspect ratio bars. Default value #000000',
+        describe: 'This will change the color of the aspect ratio bars. Default value #000000FF',
         demandOption: false,
-        default: '#000000'
+        default: '#000000FF'
     })
     .argv
     
@@ -31,7 +31,8 @@ cutTiles({
     sourcePath: yargs.sourcePath,
     targetPath: yargs.targetPath,
     tileSize: parseInt(yargs.tileSize),
-    aspectRatioBarsColor: yargs.aspectRatioBarsColor
+    aspectRatioBarsColor: yargs.aspectRatioBarsColor,
+    aspectRatioBarsColorAdjustment: yargs.aspectRatioBarsColorAdjustment
 }).then(() => function () {
     console.log("Tiles generation finished")
 })
@@ -74,10 +75,7 @@ async function createCanvas(image, imageMetaData, zoom, scale, options) {
     const canvasHeight = options.tileSize * Math.pow(2, zoom)
     const imageWidth = scaleDimension(imageMetaData.width, scale)
     const imageHeight = scaleDimension(imageMetaData.height, scale)
-    const hexRgb = (await import('hex-rgb')).default
-    const canvasColor = hexRgb('#00000000')
-
-
+    const canvasColor = (await import('hex-rgb')).default(options.aspectRatioBarsColor)
     await sharp({
         create: {
             width: canvasWidth,
