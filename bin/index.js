@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+
 const sharp = require('sharp')
 const fs = require('fs')
 const cliProgress = require('cli-progress')
@@ -15,15 +16,22 @@ const yargs = require('yargs')
     })
     .option('tileSize', {
         alias: 'tileSize',
-        describe: 'Size of the image tiles',
-        demandOption: true
+        describe: 'Size of the image tiles. Default value 256.',
+        demandOption: false,
+        default: 256
+    }).option('aspectRatioBarsColor', {
+        alias: 'aspectRatioBarsColor',
+        describe: 'This will change the color of the aspect ratio bars. Default value #000000',
+        demandOption: false,
+        default: '#000000'
     })
     .argv
-
+    
 cutTiles({
     sourcePath: yargs.sourcePath,
     targetPath: yargs.targetPath,
-    tileSize: parseInt(yargs.tileSize)
+    tileSize: parseInt(yargs.tileSize),
+    aspectRatioBarsColor: yargs.aspectRatioBarsColor
 }).then(() => function () {
     console.log("Tiles generation finished")
 })
@@ -66,13 +74,16 @@ async function createCanvas(image, imageMetaData, zoom, scale, options) {
     const canvasHeight = options.tileSize * Math.pow(2, zoom)
     const imageWidth = scaleDimension(imageMetaData.width, scale)
     const imageHeight = scaleDimension(imageMetaData.height, scale)
+    const hexRgb = (await import('hex-rgb')).default
+    const canvasColor = hexRgb('#00000000')
+
 
     await sharp({
         create: {
             width: canvasWidth,
             height: canvasHeight,
             channels: 4,
-            background: { r: 0, g: 0, b: 0 }
+            background: { r: canvasColor.red, g: canvasColor.green, b: canvasColor.blue, alpha: canvasColor.alpha }
         }
     }).composite([{
         input: await image

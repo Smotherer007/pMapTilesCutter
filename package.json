@@ -22,6 +22,7 @@
   "dependencies": {
     "cli-progress": "^3.10.0",
     "fs": "^0.0.1-security",
+    "hex-rgb": "^5.0.0",
     "sharp": "^0.30.2",
     "yargs": "^17.3.1"
   }
