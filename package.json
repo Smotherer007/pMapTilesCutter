@@ -1,6 +1,6 @@
 {
   "name": "pmaptilescutter",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Cut any image into Leaflet/Google-Maps compatible map tiles at multiple zoom levels",
   "keywords": [
     "map-tiles",
