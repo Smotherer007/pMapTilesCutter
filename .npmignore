@@ -1,0 +1,7 @@
+.github/
+.gitignore
+.node-version
+tests/
+release.config.cjs
+*.log
+.DS_Store

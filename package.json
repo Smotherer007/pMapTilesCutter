@@ -1,29 +1,54 @@
 {
   "name": "pmaptilescutter",
-  "version": "1.0.0",
-  "description": "Cuts any given image into map tiles with different zoom levels",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "version": "0.0.0",
+  "description": "Cut any image into Leaflet/Google-Maps compatible map tiles at multiple zoom levels",
+  "keywords": [
+    "map-tiles",
+    "leaflet",
+    "google-maps",
+    "image-tiling",
+    "tiles",
+    "zoom",
+    "sharp",
+    "cli"
+  ],
+  "author": "Patrick Weppelmann",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=26.0.0"
   },
   "bin": {
-    "pmaptilescutter": "bin/index.js"
+    "pmaptilescutter": "bin/index.ts"
   },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Smotherer007/pMapTilesCutter.git"
   },
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Smotherer007/pMapTilesCutter/issues"
   },
   "homepage": "https://github.com/Smotherer007/pMapTilesCutter#readme",
+  "scripts": {
+    "start": "node bin/index.ts",
+    "test": "node --experimental-test-coverage --test-coverage-include='src/**/*.ts' --test 'tests/**/*.test.ts'",
+    "test:watch": "node --test --watch 'tests/**/*.test.ts'"
+  },
   "dependencies": {
-    "cli-progress": "^3.10.0",
-    "fs": "^0.0.1-security",
-    "hex-rgb": "^5.0.0",
-    "sharp": "^0.30.2",
-    "yargs": "^17.3.1"
+    "cli-progress": "^3.12.0",
+    "sharp": "^0.35.3"
+  },
+  "devDependencies": {
+    "@semantic-release/git": "^11.0.1",
+    "semantic-release": "^25.0.9"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
