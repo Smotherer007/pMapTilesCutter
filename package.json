@@ -29,12 +29,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Smotherer007/pMapTilesCutter.git"
+    "url": "git+https://github.com/patimweb-labs/pMapTilesCutter.git"
   },
   "bugs": {
-    "url": "https://github.com/Smotherer007/pMapTilesCutter/issues"
+    "url": "https://github.com/patimweb-labs/pMapTilesCutter/issues"
   },
-  "homepage": "https://github.com/Smotherer007/pMapTilesCutter#readme",
+  "homepage": "https://github.com/patimweb-labs/pMapTilesCutter#readme",
   "scripts": {
     "start": "node bin/index.ts",
     "test": "node --experimental-test-coverage --test-coverage-include='src/**/*.ts' --test 'tests/**/*.test.ts'",
